@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>helloworld</title>
+    <script type="text/javascript" src='../assets/js/vue.js'></script>
+</head>
+<body>
+    <h1>helloworld 实例</h1>
+    <hr>
+    <div id="app">
+       <idv v-if='isLogin'>欢迎你</idv>
+       <idv v-else='isLogin'>请你登录</idv>
+    </div>
+    <script type="text/javascript">
+        var app=new Vue({
+            el:'#app',
+            data:{
+               isLogin:true
+            }
+        })
+    
+    </script>
+</body>
+</html>

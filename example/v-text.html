@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>helloworld</title>
+    <script type="text/javascript" src='../assets/js/vue.js'></script>
+</head>
+<body>
+    <h1>v-text 实例</h1>
+    <hr>
+    <div id="app">
+        <span>{{ message }}</span> == <span v-text='message'></span>
+        <span>{{ message }}</span> == <span v-html='dodo'></span>
+    </div>
+    <script type="text/javascript">
+        var app=new Vue({
+            el:'#app',
+            data:{
+                message:"我的第一个vue程序 我是最棒的",
+                dodo:'<h1> 是我的第一个v-text标签 徐涛</h1>'
+            }
+        })
+    
+    </script>
+</body>
+</html>
