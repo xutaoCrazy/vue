@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>helloworld</title>
+    <script type="text/javascript" src='../assets/js/vue.js'></script>
+</head>
+<body>
+    <h1>helloworld 实例</h1>
+    <hr>
+    <div id="app">
+        <h3>绑定文本域</h3>
+        <p>{{ message }}</p>
+        <p>v-model ：<input type="text"  v-model='message'/></p> 
+        <p>v-model-layzy ：<input type="text"  v-model.lazy='message'/></p> 
+        <p>v-model-number ：<input type="text"  v-model.number='message'/></p> 
+        <p>v-model-trim ：<input type="text"  v-model.trim='message'/></p> 
+        <hr>
+        <h3>绑定多输入框</h3>
+        <p><textarea v-model='message'></textarea></p>
+        <hr>
+        <h3>checekbox单选</h3>
+        <p>
+            <input type='checkbox' v-model='isTrue' />
+            <label>{{ isTrue }}</label>
+        </p>
+        <hr>
+        <h3>checekbox多选</h3>
+        <p>
+           
+            <label> <input type='checkbox' v-model='isTrueArr'  value='xutao1'/>xutao1</label>
+           
+            <label> <input type='checkbox' v-model='isTrueArr'  value='xutao2'/>xutao21</label>
+         
+            <label>   <input type='checkbox' v-model='isTrueArr'  value='xutao3'/>xutao3</label>
+         
+            <label>   <input type='checkbox' v-model='isTrueArr'  value='xutao4'/>xutao4</label>
+          
+            <label>  <input type='checkbox' v-model='isTrueArr'  value='xutao5'/>xutao5</label>
+           
+            <label> <input type='checkbox' v-model='isTrueArr'  value='xutao6'/>xutao6</label>
+         
+            <label>   <input type='checkbox' v-model='isTrueArr'  value='xutao7'/>xutao7</label>
+           
+            <label> <input type='checkbox' v-model='isTrueArr'  value='xutao8'/>xutao8</label>
+         
+            <label>   <input type='checkbox' v-model='isTrueArr'  value='xutao9'/>xutao9</label>
+        </p>
+        <p>{{ isTrueArr }}</p>
+        <hr>
+        <h3>radio 男女</h3>
+        <p>
+            <label><input type="radio" v-model='sex' value='男'>男</label>
+            <label><input type="radio" v-model='sex' value='女'>女</label>
+        </p>
+        <p>你选择的是： {{ sex }}</p>
+    </div>
+    <script type="text/javascript">
+        var app=new Vue({
+            el:'#app',
+            data:{
+                message:"xutao",
+                isTrue:true,
+                isTrueArr:[],
+                sex:'男'
+
+            }
+        })
+    
+    </script>
+</body>
+</html>
