@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-bind</title>
+    <script type="text/javascript" src='../assets/js/vue.js'></script>
+</head>
+<body>
+    <h1>v-bind 实例</h1>
+    <hr>
+    <div id="app">
+        <p><img v-bind:src='imgSrc'  width="400px" height='300px'/></p>
+        <p><a :href="webURl" target="_blank">帅徐涛</a></p>
+        <hr>
+        <p>绑定class</p>
+        <div v-bind:class='className'>
+            <span > 1.绑定class </span>
+        </div>
+        <p>选中变色</p>
+        <div >
+                <span :class='{classA:isok}'> 1.绑定class数组 </span>
+                <span :class='{classA,classB}'> 1.绑定class数组 </span>
+                <span :class='isok?classA:classB'> 1.绑定class数组 </span>
+
+        </div>
+        
+        <hr>
+        <p>
+            <label>
+                <input  type="checkbox"  id="isok" v-model="isok"/>选中变色
+            </label>
+        </p>
+        <p>
+            绑定style
+        </p>
+        <span :style="{color:red,fontSize:font}">绑定徐涛</span>
+        <span :style="styleObj">绑定style对象</span>
+        
+    </div>
+    <style>
+            .classA{
+                color: red;
+            }
+            .classB{
+                font-size: 100px;
+            }
+         </style>
+    <script type="text/javascript">
+        var app=new Vue({
+            el:'#app',
+            data:{
+                imgSrc:'https://ws3.sinaimg.cn/large/006tNc79gy1flxtmii18vj312o0newg7.jpg',
+                webURl:'http://www.baidu.com',
+                className:'classA',
+                isok:false,
+                classA:'classA',
+                classB:'classB',
+                red:'green',
+                font:'100px',
+                styleObj:{
+                    color:'yellow',
+                    fontSize:'90px'
+                }
+
+            }
+        })
+    
+    </script>
+</body>
+</html>
