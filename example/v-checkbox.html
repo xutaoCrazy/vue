@@ -23,27 +23,27 @@
         var app=new Vue({
             el:'#app',
             data:{
-               items:[5,6,7,8,9,1,2],
+               items:[5,6,7,8,9,1,2],  
                itemsd:[],
-               isok:false
+               isok:false  //判断CheckBox是否选中
             },
             methods:{
-                demo:function(){
+                demo:function(){   //全选/反选
                     debugger
-                    if( !this.isok){
+                    if( !this.isok){ //全选中 所有CheckBox
                         this.items.forEach(function (fruit) {
                             debugger;
                             this.itemsd.push(fruit);
                         }, this);
-                    }else{
+                    }else{   //反选清楚所有CheckBox选中
                       this.itemsd=[]
                     }
                 },
                 demo2:function(){
                     debugger;
-                    if(this.items.length==this.itemsd.length){
+                    if(this.items.length==this.itemsd.length){ //判断每一个CheckBox是否选中   全选中让全选反选按钮选中
                         this.isok=true;
-                    }else{
+                    }else{  // 不选中 让全选反选按钮不选中
                         this.isok=false;
                     }
                 }

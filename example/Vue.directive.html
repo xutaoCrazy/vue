@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue-directive 实例</title>
+    <script type="text/javascript" src='../assets/js/vue.js'></script>
+</head>
+<body>
+    <h1>helloworld 实例</h1>
+    <hr>
+    <div id="app">
+        <p>
+            <div v-xutao='isOK'>{{ num }}</div>
+        </p>
+        <p> <button @click='add'>add</button></p>
+        <p >{{ xutao }}</p>
+    </div>
+    <script type="text/javascript">
+    //    Vue.directive('xutao',function(el,binding){
+    //        debugger;
+    //         // el.style='color:'+binding.value
+    //         // console.log(binding);
+           
+    //             // el.style='display:none'
+    //             el.innerHTML= 'xutao'   
+    //            if(binding.value){
+    //                this.xutao++
+    //            }
+    //             // el.style='display:block'
+           
+    //    })
+       Vue.directive('xutao',{
+                bind:function(){//被绑定
+                    console.log('1 - bind');
+                },
+                inserted:function(){//绑定到节点
+                    console.log('2 - inserted');
+                },
+                update:function(){//组件更新
+                    console.log('3 - update');
+                },
+                componentUpdated:function(){//组件更新完成
+                    console.log('4 - componentUpdated');
+                },
+                unbind:function(){//解绑
+                    console.log('5 - bind');
+                }
+           
+       })
+        var app=new Vue({
+            el:'#app',
+            data:{
+                message:"我的第一个vue程序 我是最棒的",
+                isOK:true,
+                num:10,
+                xutao:20
+            },
+            methods:{
+                add:function(){
+                 this.num++
+                 if(this.isOK){
+                    this.isOK=false;
+                 }else{
+                    this.isOK=true;
+                 }
+                }
+            }
+        })
+    
+    </script>
+</body>
+</html>
