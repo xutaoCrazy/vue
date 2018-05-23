@@ -14,7 +14,7 @@
         <label><input type="checkbox"  v-model='isok' v-on:click='demo'/> 全选/反选</label>
        <ul>
             <li v-for="item in items">
-                <input type="checkbox" :value='item' v-model='itemsd' v-on:click='demo2'/>
+                <input type="checkbox" :value='item' v-model='itemsd' @change='demo2'/>
             </li>
        </ul>
        <p>{{ itemsd }}</p>
@@ -34,18 +34,15 @@
                         this.items.forEach(function (fruit) {
                             debugger;
                             this.itemsd.push(fruit);
-                        }, this)
-                     
+                        }, this);
                     }else{
                       this.itemsd=[]
                     }
                 },
                 demo2:function(){
                     debugger;
-                    if(this.items.length==this.itemsd.length+1){
+                    if(this.items.length==this.itemsd.length){
                         this.isok=true;
-                      
-                        
                     }else{
                         this.isok=false;
                     }
