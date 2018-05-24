@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>helloworld</title>
+    <script type="text/javascript" src='../assets/js/vue.js'></script>
+</head>
+<body>
+    <h1>helloworld 实例</h1>
+    <hr>
+    <div id="app">
+        
+    </div>
+    <author></author>
+    <script type="text/javascript">
+        var authorExtend=Vue.extend({
+            template:'<p @click="demo"><a>{{authorname}}</a></p>',
+            data:function(){
+                return {
+                    authorname:"xutao",
+                    flag:true
+                }
+            },
+            methods:{
+                demo:function(){
+                    if(this.flag){
+                        this.authorname='xutao2'
+                        this.flag=false
+                    }else{
+                         this.authorname='xutao'
+                        this.flag=true
+                    }
+                    
+                }
+            }
+        }) 
+        new authorExtend().$mount('author')
+        var app=new Vue({
+            el:'#app',
+            data:{
+                message:"我的第一个vue程序 我是最棒的"
+            }
+        })
+    
+    </script>
+</body>
+</html>

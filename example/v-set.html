@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>helloworld</title>
+    <script type="text/javascript" src='../assets/js/vue.js'></script>
+</head>
+<body>
+    <h1>helloworld 实例</h1>
+    <hr>
+    <div id="app">
+        <div>
+          {{ count }}
+        </div>
+        <p>
+            {{ goodName }}
+        </p>
+        <p><button @click='demo'>动态改变outData数据</button></p>
+        <hr>
+        <ul>
+            <li v-for='arr in arrs'>
+               {{ arr }}
+            </li>
+        </ul>
+    <buton @click='demo2'>动态改变数组数据</button>
+    </div>
+    <script type="text/javascript">
+        var outData={
+            count:1,
+            goodName:'xutao',
+            arrs:[1,2,3,4,5,6]
+        } 
+        var app=new Vue({
+            el:'#app',
+            data:outData,
+            methods:{
+                demo:function(){
+                    // Vue.set(outData,'count',4);
+                    	
+                    // app.count++;
+                    outData.count++
+                },
+                demo2:function(){
+                    // Vue.set(app.arrs,3,'xutao');
+                    app.arr[1]=45
+                }
+            }
+
+        })
+    
+    </script>
+</body>
+</html>
