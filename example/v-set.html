@@ -24,7 +24,7 @@
                {{ arr }}
             </li>
         </ul>
-    <buton @click='demo2'>动态改变数组数据</button>
+    <button @click='demo2'>动态改变数组数据</button>
     </div>
     <script type="text/javascript">
         var outData={
@@ -43,8 +43,11 @@
                     outData.count++
                 },
                 demo2:function(){
-                    // Vue.set(app.arrs,3,'xutao');
-                    app.arr[1]=45
+                    debugger;
+                   
+                    //  app.count++
+                    // app.arrs[1]=app.count
+                     Vue.set(app.arrs,3, app.count++);
                 }
             }
 
