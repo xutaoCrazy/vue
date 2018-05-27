@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>helloworld</title>
+    <script type="text/javascript" src='../assets/js/vue.js'></script>
+</head>
+<body>
+    <h1>component-3实例</h1>
+    <hr>
+    <div id="app">
+       <xutao2  v-for='(item , index) in place' :here='item' ></xutao2>
+       <city v-for='(items , index) in place' :school='items' ></city>
+    </div>
+    <script type="text/javascript">
+       var  city={
+           template:'<div @click="demo2">bossxu from 毕业于 {{ school }}</div>',
+           props:['school'],
+           methods:{
+                demo2:function(){
+                    debugger;
+                    this.cityArr.push('fushenghua');
+                }
+           }
+       }
+       var  componentDat={   //父级模板
+                    template:  
+                    `<h1 @click='demo'>bossxu from {{ here}}
+                        <city v-for='(items , index) in cityArr' :school='items' ></city>
+                    </h1>  
+                    `,
+                    data:function(){
+                        return{
+                            xuttao:'xutao1',
+                            cityArr:['xian2','xutao3']
+                        }
+                    },
+                    props:['here'],
+                    components:{  //子模板
+                        'city':city,
+                    },
+                    methods:{
+                        demo:function(){
+                            this.places=[];
+                        }
+                    }
+       }
+        var app=new Vue({
+            el:'#app',
+            data:{
+                message:"我的第一个vue程序 我是最棒的",
+                placee:'新堡子',
+                place:['xian','xiyang','sehnzhen','shanghai','suzhou','sichuan'],
+                places:['xian','xiyang','sehnzhen','shanghai','suzhou','sichuan']
+              
+            },
+            components:{
+                'xutao2':componentDat,
+                'city':city
+            }
+        })
+    </script>
+</body>
+</html>

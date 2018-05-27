@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>helloworld</title>
+    <script type="text/javascript" src='../assets/js/vue.js'></script>
+</head>
+<body>
+    <h1>helloworld 实例</h1>
+    <hr>
+    <div id="app">
+       <component :is='who'></component>
+       <button @click='changComponent'>changComponent</button>
+    </div>
+    <script type="text/javascript">
+        var componentA={
+            template:`<h1 style="color:red;fontSize:14px">componentA</h1>`
+        }
+        var componentB={
+            template:`<h1 style="color:green;fontSize:20px">componentB</h1>`
+        }
+        var componentC={
+            template:`<h1 style="color:yellow;fontSize:30px">componentC</h1>`
+        }
+        var app=new Vue({
+            el:'#app',
+            data:{
+                message:"我的第一个vue程序 我是最棒的",
+                who:'componentA'
+            },
+            components:{
+                'componentA':componentA,
+                'componentB':componentB,
+                'componentC':componentC,
+            },
+            methods:{
+                changComponent:function(){
+                    if(this.who=='componentA'){
+                        this.who='componentB'
+                    }else if(this.who=='componentB'){
+                        this.who='componentC'
+                    }else{
+                        this.who='componentA'
+                    }
+                }
+            }
+        })
+    
+    </script>
+</body>
+</html>

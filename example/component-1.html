@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>helloworld</title>
+    <script type="text/javascript" src='../assets/js/vue.js'></script>
+</head>
+<body>
+    <h1>helloworld 实例</h1>
+    <hr>
+    <div id="app">
+       <xutao></xutao>
+       <xutao2></xutao2>
+
+    </div>
+    <script type="text/javascript">
+        Vue.component('xutao',{
+            template:`<h1 @click='demo'> {{ message }}-{{ count }}</h1>`, 
+            data:function(){
+                return{
+                    message:'今天是个好日子',
+                    count:1
+                }
+              
+            },
+            methods:{
+                demo:function(){
+                    debugger;
+                    this.count++
+                   }
+            }
+            // methods:function(){
+            //     return{
+                   
+            //     }
+               
+            // }
+        })
+        var app=new Vue({
+            el:'#app',
+            data:{
+                message:"我的第一个vue程序 我是最棒的"
+            },
+            components:{
+                'xutao2':{
+                    template:`<h1>{{ xuttao}}</h1>`,
+                    data:function(){
+                        return{
+                            xuttao:'xutao1'
+                        }
+                    }
+                }
+            }
+        })
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>helloworld</title>
+    <script type="text/javascript" src='../assets/js/vue.js'></script>
+</head>
+<body>
+    <h1>helloworld 实例</h1>
+    <hr>
+    <div id="app">
+        {{ message}}
+    </div>
+    <template id='ids'>
+        <h1 style='color:red'>我是template 标签模板</h1>
+    </template>
+    <script type='x-template' id='id3'>
+            <h1 style='color:red'>我是template3 标签模板</h1>
+    </script>
+    <script type="text/javascript">
+        var app=new Vue({
+            el:'#app',
+            data:{
+                message:"我的第一个vue程序 我是最棒的"
+            },
+            // template:`       选项加载
+            //     <h1 style='color:red'>我是帅涛</h1>   
+            // `
+            // template:'#ids',   //html  加载
+            template:'#id3'   //html  加载
+        })
+    
+    </script>
+</body>
+</html>
