@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>helloworld</title>
+    <script type="text/javascript" src='../assets/js/vue.js'></script>
+</head>
+<body>
+    <h1>helloworld 实例</h1>
+    <hr>
+    <div id="app">
+       <p>{{ newPrci}}</p> 
+       <ul>
+            <li v-for='item in newList'>
+                {{ item.title}}--{{ item.date}}
+            </li>
+       </ul>
+    </div>
+    <script type="text/javascript">
+       var  newList=[
+           {title:'习近平在两院院士大会上的讲话  崇尚英雄 精忠报国',date:'2017-5-24'},
+           {title:'习近平向各国共产党赴华参加马克思研讨会致贺信',date:'2017-5-25'},
+           {title:'习近平将主持上合青岛峰会并举行相关活动',date:'2017-5-26'},
+           {title:'一图读懂｜上海合作组织17年不平凡历程',date:'2017-5-27'},
+           {title:'中华文明探源成果公布 考古实证中华5000年文明',date:'2017-5-28'},
+           {title:'全国网络扶贫深度贫困地区行活动在贵州启动',date:'2017-5-29'},
+       ]
+        var app=new Vue({
+            el:'#app',
+            data:{
+                message:"我的第一个vue程序 我是最棒的",
+                price:200,
+                newlist:newList
+
+            },
+            computed:{
+                newPrci:function(){
+                    return this.price='$'+this.price+'元'
+                },
+                newList:function(){
+                    return this.newlist.reverse();  //reverse  数组反转 倒序输出
+                }
+            }
+        })
+    
+    </script>
+</body>
+</html>
