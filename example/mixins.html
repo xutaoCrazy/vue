@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>helloworld</title>
+    <script type="text/javascript" src='../assets/js/vue.js'></script>
+</head>
+<body>
+    <h1>helloworld 实例</h1>
+    <hr>
+    <div id="app">
+        <p>{{ num }}</p>
+        <p><button @click='demo'>增加</button></p>
+    </div>
+    <script type="text/javascript">
+        var mixins={
+            updated:function(){
+                console.log('数据发生了变化变成了'+this.num)
+            }
+        } ;
+        Vue.mixin({    //先执行
+            updated:function(){
+                console.log('我是全局的混入')
+            }
+        })
+        var app=new Vue({
+            el:'#app',
+            data:{
+                num:1
+            },
+            methods:{
+                demo:function(){
+                    this.num++
+                }
+            },
+            updated:function(){  //最后执行
+                console.log('我是局部的变量')
+            },
+            mixins:[mixins]   //再执行
+
+        })
+    
+    </script>
+</body>
+</html>

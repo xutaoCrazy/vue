@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>helloworld</title>
+    <script type="text/javascript" src='../assets/js/vue.js'></script>
+</head>
+<body>
+    <h1>helloworld 实例</h1>
+    <hr>
+    <div id="app">
+        { num }
+        <p> <button @click='add'>扩展增加</button></p>
+    </div>
+    <script type="text/javascript">
+        var extendsObj={
+            updated:function(){ 
+                console.log('我是被扩展的方法再执行');
+            }
+        } 
+        var app=new Vue({
+            el:'#app',
+            data:{
+               num:1
+            },
+            methods:{
+                add:function(){  //先执行
+                    this.num++
+                    console.log('我是原生方法先执行')
+                }
+            }, 
+            updated:function(){  //最后执行
+                console.log('我是原生的updated最后执行')
+            },
+            extends:extendsObj,     //再执行
+            delimiters:['{',"}"]
+            
+   })
+    
+    </script>
+</body>
+</html>

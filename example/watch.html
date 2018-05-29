@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>helloworld</title>
+    <script type="text/javascript" src='../assets/js/vue.js'></script>
+</head>
+<body>
+    <h1>helloworld 实例</h1>
+    <hr>
+    <div id="app">
+        <p>今日温度：{{ wendu }}</p>
+        <p>穿衣指数：{{ chuanyi }}</p>
+        <p><button @click='addWendu' style='margin-right:5px'>升高温度</button><button @click='removeWendu'>降低温度</button></p>
+    </div>
+    <script type="text/javascript">
+        var app=new Vue({
+            el:'#app',
+            data:{
+                wendu:10,
+                chuanyi:'皮夹克'
+            },
+            methods:{
+                addWendu:function(){
+                    this.wendu +=5;
+                },
+                removeWendu:function(){
+                    this.wendu -=5;
+                }
+            },
+            // watch:{
+            //     wendu:function(newVal,oldVal){
+            //         if(newVal>25){
+            //             this.chuanyi='短袖';
+            //         }else if(newVal<=25 && newVal>=0){
+            //             this.chuanyi='白色衬衫';
+            //         }else {
+            //             this.chuanyi='棉袄';
+            //         }
+
+
+
+        
+            //     }
+            // }
+
+        })
+        app.$watch('wendu',function(newVal){
+            if(newVal>25){
+                        this.chuanyi='短袖';
+                    }else if(newVal<=25 && newVal>=0){
+                        this.chuanyi='白色衬衫';
+                    }else {
+                        this.chuanyi='棉袄';
+                    }
+        })
+    
+    </script>
+</body>
+</html>
