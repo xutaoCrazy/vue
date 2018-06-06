@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>helloworld</title>
+    <script type="text/javascript" src='../assets/js/vue.js'></script>
+</head>
+<body>
+    <h1>helloworld 实例</h1>
+    <hr>
+    <div id="app">
+        <p>{{ num }}</p>
+        <p><button @click='add'>add</button></p>
+    </div>
+    <p><button onclick='reduce()'>reduce</button></p>    
+    <p><button onclick='reduceOnce()'>reduceOnce</button></p>    
+    <p><button onclick='off()'>off</button></p>    
+    <script type="text/javascript">
+        var app=new Vue({
+            el:'#app',
+            data:{
+                num:1
+            },
+            methods:{
+                add:function(){
+                    this.num++;
+                }
+            }
+        });
+
+        app.$on('reduce',function(){
+            this.num--
+        });
+        app.$once('reduceOnce',function(){
+            this.num--
+        });
+        function reduce(){
+            app.$emit('reduce');
+        };
+        function reduceOnce(){
+            app.$emit('reduceOnce');
+        };
+        function off(){
+            app.$off('reduce');
+        }
+    </script>
+
+</body>
+</html>

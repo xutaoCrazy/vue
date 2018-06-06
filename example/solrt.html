@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>helloworld</title>
+    <script type="text/javascript" src='../assets/js/vue.js'></script>
+</head>
+<body>
+    <h1>helloworld 实例</h1>
+    <hr>
+    <div id="app">
+        <bossxu>
+            <span slot='blog'>{{bossData.blog }}</span>
+            <span slot='sex'>{{bossData.sex }}</span>
+            <span slot='age'>{{bossData.age }}</span>
+        </bossxu>
+    </div>
+    <template id='tpl'>
+            <div>
+                <p>我的姓名是：<slot name='blog'></slot></p>
+                <p>我的性别是：<slot name='sex'></slot></p>
+                <p>我的年龄是：<slot name='age'></slot></p>
+            </div>
+    </template>
+    <script type="text/javascript">
+        var  bossxu={
+            template:'#tpl'
+        }
+        var app=new Vue({
+            el:'#app',
+            data:{
+               bossData:{
+                   blog:'boxxpang',
+                   sex:'男',
+                   age:'nv'
+               }
+            },
+            components:{
+                'bossxu':bossxu
+            }
+
+        })
+    
+    </script>
+</body>
+</html>

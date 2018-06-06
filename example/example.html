@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>helloworld</title>
+    <script type="text/javascript" src='../assets/js/vue.js'></script>
+</head>
+<body>
+    <h1>helloworld 实例</h1>
+    <hr>
+    <div id="app"></div>
+    <p><button onclick="destroy()">销毁</button></p>
+    <p><button onclick="reload()">刷新</button></p>
+    <p><button onclick="tick()">更新</button></p>
+    <script type="text/javascript">
+    var jspang =Vue.extend({
+        template:`<div>{{ message }}</div>`,
+        data:function (){
+            return{
+                message:"徐涛的第一个项目"
+            }
+        },
+        mounted:function(){
+            console.log('我被创建了')
+        },
+        destroyed:function(){
+            console.log('我被销毁了')
+        },
+        updated:function(){
+            console.log('我被更新了')
+        }
+    })
+       
+       var demo =new jspang().$mount('#app')
+       function destroy(){
+           demo.$destroy()
+       };
+       function reload(){
+           demo.$forceUpdate()
+       };
+       function tick(){
+           demo.message='我被更新了';
+           demo.$nextTick(function(){
+                console.log('message跟新完成以后 我被调用了')
+           })
+       }
+    </script>
+</body>
+</html>
